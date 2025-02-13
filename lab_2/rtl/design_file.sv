@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: uet lahore
+// Engineer: waleed akram
 // 
 // Create Date: 02/01/2025 12:47:51 AM
 // Design Name: 
@@ -22,14 +22,10 @@
 
 
 module design_file(
-    input a,
-    input b,
-    input c,
-    output x,
-    output y
+    output x,y,
+    input a,b,c
     );
-    assign or_out = a | b;
-    assign x = (~c) ^ or_out;
-    assign xor_out = (~(a & b)) ^ (or_out);
-    assign y = or_out & xor_out;
+    
+    assign x = ~c ^ (a | b);
+    assign y = (~(a & b) ^ (a | b)) & (a | b); 
 endmodule
