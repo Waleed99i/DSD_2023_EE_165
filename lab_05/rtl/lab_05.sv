@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: uet lahore
+// Engineer: waleed akram
 // 
 // Create Date: 02/26/2025 04:59:56 PM
-// Design Name: 
+// Design Name: lab_05_combinational_circuit
 // Module Name: lab_05
-// Project Name: 
+// Project Name: seven_segment_display
 // Target Devices: 
 // Tool Versions: 
 // Description: 
@@ -31,7 +31,7 @@ module lab_05(
 );
     always_comb begin
         // Cathodes for segments A to G
-        A = (~num[3] & ~num[2] & num[1] & ~num[0]) | 
+        A = (~num[3] & ~num[2] & ~num[1] & num[0]) | 
             (~num[3] & num[2] & ~num[1] & ~num[0]) | 
             (num[3] & num[2] & ~num[1] & num[0]) | 
             (num[3] & ~num[2] & num[1] & num[0]);
@@ -66,13 +66,13 @@ module lab_05(
         DP = 1; // Decimal point always on
 
         // Anodes for 7-segment display
-        AN[0] = ~(sel[2] | sel[1] | sel[0]);
-        AN[1] = ~(sel[2] | sel[1] | ~sel[0]);
-        AN[2] = ~(sel[2] | ~sel[1] | sel[0]);
-        AN[3] = ~(sel[2] | ~sel[1] | ~sel[0]);
-        AN[4] = ~(~sel[2] | sel[1] | sel[0]);
-        AN[5] = ~(~sel[2] | sel[1] | ~sel[0]);
-        AN[6] = ~(~sel[2] | ~sel[1] | sel[0]);
-        AN[7] = ~(~sel[2] | ~sel[1] | ~sel[0]);
+        AN[0] = (sel[2] | sel[1] | sel[0]);
+        AN[1] = (sel[2] | sel[1] | ~sel[0]);
+        AN[2] = (sel[2] | ~sel[1] | sel[0]);
+        AN[3] = (sel[2] | ~sel[1] | ~sel[0]);
+        AN[4] = (~sel[2] | sel[1] | sel[0]);
+        AN[5] = (~sel[2] | sel[1] | ~sel[0]);
+        AN[6] = (~sel[2] | ~sel[1] | sel[0]);
+        AN[7] = (~sel[2] | ~sel[1] | ~sel[0]);
     end
 endmodule
